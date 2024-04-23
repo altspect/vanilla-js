@@ -34,25 +34,16 @@
 
         <footer></footer>
         <script id="theme.js">
-            console.log('hello there');
-            let isDarkMode = true;
-            const button = document.getElementById('toggle');
-            const htmlTag = document.getElementsByTagName('html')[0];
+            const doc = document.documentElement;
+            const toggle = document.getElementById('toggle');
 
-            const changeUiMode = () => {
-                if (isDarkMode) {
-                   isDarkMode = false;
-                   htmlTag.setAttribute('data-theme', 'light');
-                } else {
-                   isDarkMode = true;
-                   htmlTag.setAttribute('data-theme', 'dark');
-                }
+            function toggleTheme() {
+                const currentTheme = doc.getAttribute("data-theme");
+                let newTheme = currentTheme === "dark" ? "light" : "dark";
+                doc.setAttribute('data-theme', newTheme)
             }
-            
-            button.addEventListener('click', (ev) => {
-                changeUiMode();
-            })
 
+            toggle.addEventListener('change', toggleTheme);
         </script>
     </body>
 </html>
