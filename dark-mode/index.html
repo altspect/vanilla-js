@@ -1,0 +1,58 @@
+<!doctype html>
+<html data-theme="dark">
+    <head>
+        <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+
+        <title>Dark Mode | Vanilla JS Projects</title>
+        <link rel="stylesheet" type="text/css" href="../assets/darklight.css" />
+        <link rel="stylesheet" type="text/css" href="../assets/pico.css" />
+    </head>
+
+    <body class="container grid">
+        <header>
+            <h1>dark mode</h1>
+        </header>
+
+        <nav style="align-self: center">
+            <label>
+                <input
+                    type="checkbox"
+                    id="toggle"
+                    name="toggle"
+                    role="switch"
+                    checked
+                />
+                Use dark mode
+            </label>
+        </nav>
+
+        <main>
+            <article>
+                <main id="darklight"></main>
+            </article>
+        </main>
+
+        <footer></footer>
+        <script id="theme.js">
+            console.log('hello there');
+            let isDarkMode = true;
+            const button = document.getElementById('toggle');
+            const htmlTag = document.getElementsByTagName('html')[0];
+
+            const changeUiMode = () => {
+                if (isDarkMode) {
+                   isDarkMode = false;
+                   htmlTag.setAttribute('data-theme', 'light');
+                } else {
+                   isDarkMode = true;
+                   htmlTag.setAttribute('data-theme', 'dark');
+                }
+            }
+            
+            button.addEventListener('click', (ev) => {
+                changeUiMode();
+            })
+
+        </script>
+    </body>
+</html>
